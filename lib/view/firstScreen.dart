@@ -19,6 +19,16 @@ class _First_ScreenState extends State<First_Screen> {
     wproviderT= Provider.of<weathere_Provider>(context,listen: true);
     wproviderF= Provider.of<weathere_Provider>(context,listen: false);
     return  Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+      ),
+      endDrawer:Drawer(
+        child: Container(
+          child: Image.asset("assets/image/pexels-paul-basel-1816823.jpg",
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -55,11 +65,10 @@ class _First_ScreenState extends State<First_Screen> {
                                       children: [
                                         Text("${p1.name}  (${p1.sys!.country})",style: TextStyle(color: Colors.white,fontSize: 30),),
                                         SizedBox(width: 150,),
-                                        Icon(Icons.location_on,color: Colors.green,size: 30,),
                                       ],
                                     ),
                                   ),
-                                  SizedBox(height: 100,),
+                                  SizedBox(height: 60,),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -72,7 +81,7 @@ class _First_ScreenState extends State<First_Screen> {
                                         )
                                     ],
                                   ),
-                                  SizedBox(height: 50,),
+                                  SizedBox(height: 40,),
 
                                   Row(
                                     children: [
@@ -162,7 +171,7 @@ class _First_ScreenState extends State<First_Screen> {
                                              ],
                                            ),
 
-                                         ], 
+                                         ],
                                         ),
                                     ),
                                   ),
@@ -239,8 +248,6 @@ class _First_ScreenState extends State<First_Screen> {
                                       ),
                                     ),
                                   ),
-
-
                                 ],
                               ),
                             ],
