@@ -39,6 +39,7 @@ dependencies:
   glassmorphism: ^3.0.0
   http: ^0.13.5
   provider: ^6.0.4
+  flutter_slider_drawer: ^2.1.1
 
 dev_dependencies:
   flutter_test:
