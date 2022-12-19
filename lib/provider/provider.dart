@@ -6,21 +6,37 @@ import '../model/postmodel.dart';
 
 class weathere_Provider extends ChangeNotifier{
 
-
-  //String searchdata ="news";
-
-
-  //
-  // void changeData(String newdata)
-  // {
-  //   searchdata =newdata;
-  //   notifyListeners();
-  // }
+  List city = ["Surat","Mumbai","Delhi","Jaipur","Kolkata","Agra","Chennai","Kochi"];
+  List long = ["72.8311","72.8777","77.1025","75.7873","88.3639","78.008072","80.237617","76.267303"];
+  List lat = ["21.1702","19.0760","28.7041","26.9124","22.5726","27.176670","13.067439"," 9.931233"];
+  String logi = "72.8311";
+  String lati = "21.1702";
+  List cityimgage = ["https://images.pexels.com/photos/14676831/pexels-photo-14676831.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/13389827/pexels-photo-13389827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/12446192/pexels-photo-12446192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/3581368/pexels-photo-3581368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/13207723/pexels-photo-13207723.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/12446195/pexels-photo-12446195.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/14353572/pexels-photo-14353572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/10879261/pexels-photo-10879261.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "",
+    "",
+  ];
+  String imgage = "https://images.pexels.com/photos/14676831/pexels-photo-14676831.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
   Future<Postmodel> Wfactory() async {
-    String newslike = "https://api.openweathermap.org/data/2.5/weather?lat=21.1702&lon=72.8311&appid=9628b95a2235abb2f18055013ade5de8";
+    String newslike = "https://api.openweathermap.org/data/2.5/weather?lat=$logi&lon=$lati&appid=9628b95a2235abb2f18055013ade5de8";
     var newsString = await http.get(Uri.parse(newslike));
     var newsjson = jsonDecode(newsString.body);
     return  Postmodel.fromJson(newsjson);
+  }
+
+  void changeapi(String logii,String latii,int i)
+  {
+    logi = logii;
+    lati = latii;
+    imgage = cityimgage[i];
+
+    notifyListeners();
   }
 }
